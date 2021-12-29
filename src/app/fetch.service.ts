@@ -15,16 +15,16 @@ export class FetchService {
 
   private api = environment.backendUrl;
 
-  getImage(imageNum:number) : Observable<ArrayBuffer>{
-    this.getImageCount();
-    return this.http.get(`${this.api}/gallery/${imageNum}`, {responseType:'arraybuffer'});
+  getImage(album: string, imageNum:number) : Observable<ArrayBuffer>{
+    return this.http.get(`${this.api}/albums/${album}/${imageNum}`, {responseType:'arraybuffer'});
   }
 
-  getImageCount(){
-    return this.http.get(`${this.api}/gallery/count`);
+  getImageCount(album:string){
+    return this.http.get(`${this.api}/albums/${album}/count`);
   }
 
   getAlbumNames(){
     return this.http.get(`${this.api}/albums/all`);
   }
+
 }

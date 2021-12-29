@@ -41,8 +41,7 @@ import { AlbumsComponent } from './albums/albums.component';
     HttpClientModule,
     RouterModule.forRoot([
       {path:'', component: LoginComponent},
-      {path:'gallery', component: GalleryComponent},
-      {path:'albums/:album_id', component:GalleryComponent},
+      {path:'gallery/:album_id', component: GalleryComponent},
       {path:'albums', component:AlbumsComponent},
       {path:'**', component:AppComponent} //add NotFoundComponent
     ])
