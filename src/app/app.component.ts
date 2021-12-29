@@ -8,9 +8,17 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'PrivateDrive';
 
-  menuLinks= [{text:"All photos", link:"/gallery"}, 
-              {text:"Albums", link:"/albums"},
-              {text:"Upload", link:"/upload"}];
+  title = 'PrivateDrive';
+  menuLinks = new Map<String, String>();
+
+  constructor(){
+    this.initLinksMap();
+  }
+
+  private initLinksMap(){
+    this.menuLinks.set("All Photos", "/gallery");
+    this.menuLinks.set("Albums", "/albums");
+    this.menuLinks.set("Upload", "/upload");
+  }
 }
