@@ -1,0 +1,11 @@
+@use "@material/image-list/mdc-image-list";
+@use "@material/image-list";
+@use "@material/dialog";
+
+@include dialog.core-styles;
+
+.my-masonry-image-list {
+    @include image-list.masonry-columns(4);
+}
+
+

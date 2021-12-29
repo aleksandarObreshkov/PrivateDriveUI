@@ -1,0 +1,9 @@
+.spacer{
+    width: 10px;
+}
+
+.box{
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
