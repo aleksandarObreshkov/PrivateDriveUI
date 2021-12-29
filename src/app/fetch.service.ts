@@ -23,4 +23,8 @@ export class FetchService {
   getImageCount(){
     return this.http.get(`${this.api}/gallery/count`);
   }
+
+  getAlbumNames(){
+    return this.http.get(`${this.api}/albums/all`);
+  }
 }

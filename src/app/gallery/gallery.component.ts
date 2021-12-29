@@ -19,6 +19,10 @@ export class GalleryComponent implements OnInit{
   imageCount : any;
 
   ngOnInit(): void {
+    this.fetchImages();
+  }
+
+  private fetchImages(){
     this.fetchService.getImageCount().subscribe(e => {
       this.imageCount = Number.parseInt(e.toString());
       for(var i =0; i<this.imageCount; i++){
@@ -30,7 +34,7 @@ export class GalleryComponent implements OnInit{
   }
 
 
-  parseBuffer(buffer: ArrayBuffer) : SafeUrl{
+  private parseBuffer(buffer: ArrayBuffer) : SafeUrl{
     let typedArray = new Uint8Array(buffer);
     const string_char = typedArray.reduce((data, byte)=> {
       return data + String.fromCharCode(byte);
@@ -44,8 +48,6 @@ export class GalleryComponent implements OnInit{
       data: url
     });
   }
-
-  
 
   imageUrls = ["https://images.unsplash.com/photo-1617854818583-09e7f077a156?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
   "https://images.unsplash.com/photo-1617854818583-09e7f077a156?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
