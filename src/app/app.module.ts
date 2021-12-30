@@ -17,13 +17,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { AlbumsComponent } from './albums/albums.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     GalleryComponent,
-    DialogComponent
+    DialogComponent,
+    AlbumsComponent
     ],
   imports: [
     BrowserModule,
@@ -39,8 +41,8 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     RouterModule.forRoot([
       {path:'', component: LoginComponent},
-      {path:'gallery', component: GalleryComponent},
-      {path:'albums/:album_id', component:AppComponent}, //add Album component, where we can see the albums
+      {path:'gallery/:album_id', component: GalleryComponent},
+      {path:'albums', component:AlbumsComponent},
       {path:'**', component:AppComponent} //add NotFoundComponent
     ])
   ],

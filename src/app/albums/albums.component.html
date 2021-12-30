@@ -1,0 +1,7 @@
+<mat-list>
+    <div mat-subheader>Folders</div>
+    <mat-list-item *ngFor="let album of albumNames" (click)="openAlbum(album)">
+      <mat-icon mat-list-icon>folder</mat-icon>
+      <div mat-line>{{album}}</div>
+    </mat-list-item>
+  </mat-list>
