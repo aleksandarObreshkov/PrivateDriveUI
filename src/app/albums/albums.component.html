@@ -1,7 +1,29 @@
 <mat-list>
-    <div mat-subheader>Folders</div>
-    <mat-list-item *ngFor="let album of albumNames" (click)="openAlbum(album)">
-      <mat-icon mat-list-icon>folder</mat-icon>
-      <div mat-line>{{album}}</div>
-    </mat-list-item>
-  </mat-list>
+  <div mat-subheader>Folders</div>
+    <div *ngFor="let album of albumNames" class="albumHolder">
+      <mat-list-item  (click)="openAlbum(album)">
+        <mat-icon mat-list-icon>folder</mat-icon>
+        <div mat-line>{{album}}</div>
+      </mat-list-item>
+      <div class="optionsHolder">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </div>
+    </div>
+</mat-list>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item disabled>
+    <mat-icon>download</mat-icon>
+    <span>Download</span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>edit</mat-icon>
+    <span>Edit album</span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>person</mat-icon>
+    <span>Manage Access</span>
+  </button>
+</mat-menu>

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchService } from '../fetch.service';
-import { SafeUrl } from '@angular/platform-browser';
-import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { MatMenu } from '@angular/material/menu';
 
 @Component({
   selector: 'app-albums',

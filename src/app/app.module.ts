@@ -18,6 +18,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AlbumsComponent } from './albums/albums.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AlbumsComponent } from './albums/albums.component';
     MatListModule,
     MatDialogModule,
     HttpClientModule,
+    MatMenuModule,
     RouterModule.forRoot([
       {path:'', component: LoginComponent},
       {path:'gallery/:album_id', component: GalleryComponent},
