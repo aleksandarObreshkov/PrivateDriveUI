@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AlbumsComponent } from './albums/albums.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {MatMenuModule} from '@angular/material/menu';
     LoginComponent,
     GalleryComponent,
     DialogComponent,
-    AlbumsComponent
+    AlbumsComponent,
+    UploadComponent
     ],
   imports: [
     BrowserModule,
@@ -45,6 +47,7 @@ import {MatMenuModule} from '@angular/material/menu';
       {path:'', component: LoginComponent},
       {path:'gallery/:album_id', component: GalleryComponent},
       {path:'albums', component:AlbumsComponent},
+      {path:'upload', component: UploadComponent},
       {path:'**', component:AppComponent} //add NotFoundComponent
     ])
   ],
