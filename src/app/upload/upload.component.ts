@@ -15,17 +15,36 @@ export class UploadComponent implements OnInit {
   }
 
   fileName: any;
+  apiUrl = environment.backendUrl;
 
   onFileSelected(event) {
 
     const file:File = event.target.files[0];
     if (file) {
         this.fileName = file.name;
-        //const formData = new FormData();
-        //formData.append("thumbnail", file);
-        console.log("Starting upload");
-        const upload$ = this.http.post(`/${environment.backendUrl}/upload`, file);
-        //upload$.subscribe();
+        this.readAndUploadFile(file)        
     }
+  }
+
+  sendFile(file){
+    const upload$ = this.http.post(`${this.apiUrl}/upload`, file);
+    upload$.subscribe();
+  }
+
+  readAndUploadFile(file) {
+    return new Promise((resolve, reject) => {
+      // Create file reader
+      let reader = new FileReader()
+  
+      // Register event listeners
+      reader.addEventListener("loadend", e => {
+        resolve(e.target.result)
+        this.sendFile(e.target.result)
+      })
+      reader.addEventListener("error", reject)
+  
+      // Read file
+      reader.readAsArrayBuffer(file)
+    })
   }
 }
